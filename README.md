@@ -10,7 +10,7 @@ This project provisions an EKS cluster along with several related resources usin
 4. **CustomResource with Lambda**: A Lambda function retrieves the account environment from the SSM parameter and generates Helm chart values such as `controller.replicaCount`, which is referenced in the Helm chart deployment.
 5. **Hellow World**: It will also deploy a Hello world app to see all works fine. 
 
-# INSIDE THE cdk.json you have the configuration to define the environment
+## Inside cdk.json you have the configuration to define the environment
   "context": {
     "environment": "production"
     }
