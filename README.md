@@ -1,5 +1,28 @@
 
-# Welcome to your CDK Python project!
+# EKS Project - CDK Python Project
+
+This project provisions an EKS cluster along with several related resources using AWS CDK (Python). Below are the detailed instructions to set up and run the project.
+
+## Resources Created
+1. **EKS Cluster**: A simple EKS cluster using the [aws-cdk-lib.aws_eks](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_eks-readme.html).
+2. **SSM Parameter**: An SSM parameter `/platform/account/env` containing values like `development`, `staging`, or `production`.
+3. **Helm Chart**: Installation of [ingress-nginx](https://artifacthub.io/packages/helm/ingress-nginx/ingress-nginx) using Helm on the EKS cluster. The chart values are fetched dynamically from a CustomResource.
+4. **CustomResource with Lambda**: A Lambda function retrieves the account environment from the SSM parameter and generates Helm chart values such as `controller.replicaCount`, which is referenced in the Helm chart deployment.
+5. **Hellow World**: It will also deploy a Hello world app to see all works fine. 
+
+# INSIDE THE cdk.json you have the configuration to define the environment
+  "context": {
+    "environment": "production"
+    }
+
+
+
+## Setup Instructions
+
+### Step 1: Initialize the Python Virtual Environment
+To set up your Python environment:
+
+
 
 This is a blank project for CDK development with Python.
 

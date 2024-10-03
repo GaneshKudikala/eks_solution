@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-import os
-
+#import os
 import aws_cdk as cdk
+from aws_cdk import aws_eks as eks
 
 from eks_solution.eks_solution_stack import EksSolutionStack
-
+#from eks_solution.InvokeLambdaStack import InvokeLambdaStack
 
 app = cdk.App()
+
+#InvokeLambdaStack(app, "InvokeLambdaStack", lambda_function=EksSolutionStack.lambda_function)
 EksSolutionStack(app, "EksSolutionStack",
+#invoke_stack = InvokeLambdaStack(app, "InvokeLambdaStack", lambda_function=eks_solution_stack.lambda_function),
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,
     # but a single synthesized template can be deployed anywhere.
@@ -24,5 +27,6 @@ EksSolutionStack(app, "EksSolutionStack",
 
     # For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html
     )
+
 
 app.synth()
